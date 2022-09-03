@@ -2,16 +2,16 @@
 import re
 
 #import the mac addresses from a file, form of MAC address should be like 98D8639B7996
-macLines = '/path/to/your/file'
+mac_addr_pool = '/path/to/your/file'
 
 #define the regex pattern in splitting two characters into group, six groups in total
 regex_pattern = r"([0-9a-fA-F]{1,2})([0-9a-fA-F]{1,2})([0-9a-fA-F]{1,2})([0-9a-fA-F]{1,2})([0-9a-fA-F]{1,2})([0-9a-fA-F]{1,2})"
 
 #read content from file
-with open(macLines, 'r') as f:
+with open(mac_addr_pool, 'r') as f:
 	#use for loop to regex-searching in each line
 	for line in f:
-		re_result = re.search(regex_patterm, line)
+		re_result = re.search(regex_pattern, line)
 		#concatenate groups extracted by regex with ':'
 		mac_addr = re_result.group(1) \
 		+ ':' + re_result.group(2) \
